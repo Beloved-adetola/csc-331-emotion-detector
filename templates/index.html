@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Face Emotion Detector</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flash">
+            {% for category, msg in messages %}
+            <li class="{{ category }}">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="Enter your name" required />
+            <input type="file" name="image" accept="image/*" required />
+            <button type="submit">Detect Emotion</button>
+        </form>
+
+        {% if image_path %}
+        <div class="result">
+            <h2>Result for {{ username }}</h2>
+            <img src="{{ image_path }}" alt="Uploaded Image" />
+            <p><strong>Detected Emotion:</strong> {{ label }}</p>
+            <p><strong>Confidence:</strong> {{ score }}</p>
+        </div>
+        {% endif %}
+
+        {% if recent %}
+        <h2>Recent Records</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Timestamp</th>
+                <th>Emotion</th>
+                <th>Score</th>
+            </tr>
+            {% for rec in recent %}
+            <tr>
+                <td>{{ rec[0] }}</td>
+                <td>{{ rec[1][:19] }}</td>
+                <td>{{ rec[2] }}</td>
+                <td>{{ rec[3]|round(3) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Emotion Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Face Emotion Detector 😃</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="username" placeholder="Enter your name" required>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Detect Emotion</button>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <h3>Recent Detections</h3>
+        <div class="gallery">
+            {% for record in recent %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='uploads/' + record[4].split('/')[-1]) }}" alt="Face"
+                    width="150">
+                <p><strong>{{ record[0] }}</strong></p>
+                <p>{{ record[2] }} ({{ "%.2f"|format(record[3]) }})</p>
+                <p class="time">{{ record[1] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

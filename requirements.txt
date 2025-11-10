@@ -1,0 +1,13 @@
+# Core app dependencies
+streamlit
+numpy
+pillow
+opencv-python-headless==4.8.1.78
+
+# face detection / facial models
+facenet-pytorch
+emotiefflib[torch]
+
+# PyTorch stack (for runtime & optional training scaffolding)
+torch
+torchvision
