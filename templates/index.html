@@ -98,11 +98,12 @@
                 <img src="{{ url_for('static', filename='uploads/' + record[4].split('/')[-1]) }}" alt="Face"
                     width="150">
                 <p><strong>{{ record[0] }}</strong></p>
-                <p>{{ record[2] }} ({{ "%.2f"|format(record[3]) }})</p>
+                <p>{{ record[2] }} ({{ record[3] }})</p>
                 <p class="time">{{ record[1] }}</p>
             </div>
             {% endfor %}
         </div>
+
     </div>
 </body>
 

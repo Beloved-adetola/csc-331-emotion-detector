@@ -219,7 +219,7 @@ def index():
         # Use save_record() to store in DB
         save_record(username, label, score, filename)
 
-        flash(f"Detected emotion: {label} (confidence: {score:.3f})")
+        flash(f"Detected emotion: {label} (confidence: {score:.2f}%)")
         return redirect(url_for("index"))
 
     # Display recent detections
