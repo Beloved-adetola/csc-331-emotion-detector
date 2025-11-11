@@ -1,8 +1,8 @@
-Flask==3.0.3
+facenet-pytorch
+emotiefflib[torch]
 torch>=2.0
-torchvision==0.17.2
-facenet-pytorch==2.6.0
-emotiefflib[torch]==1.1.1
-Pillow==10.3.0
-numpy==1.26.4
-joblib==1.3.2
+torchvision
+Pillow
+numpy
+joblib
+flask
