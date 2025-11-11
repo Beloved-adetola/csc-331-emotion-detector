@@ -1,5 +1,5 @@
 Flask==3.0.3
-torch==2.2.2
+torch>=2.0
 torchvision==0.17.2
 facenet-pytorch==2.6.0
 emotiefflib[torch]==0.3.2
