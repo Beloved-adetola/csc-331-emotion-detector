@@ -1,7 +1,9 @@
-flask
+Flask
 gunicorn
-torch==2.1.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
-torchvision==0.16.2+cpu --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.0+cpu
+torchvision==0.16.0+cpu
+torchaudio==2.1.0+cpu
+-f https://download.pytorch.org/whl/torch_stable.html
 facenet-pytorch
 emotiefflib[torch]
 Pillow
